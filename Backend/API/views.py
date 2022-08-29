@@ -1,71 +1,56 @@
-from email.policy import HTTP
-from http.client import HTTPException
-from django.shortcuts import render
-from rest_framework.decorators import api_view
+from rest_framework.views import APIView
+from . models import APIModel
 from .serializers import APISerializers
-from django.http import JsonResponse
 from rest_framework.response import Response
-from .models import APIModel
 from rest_framework import status
 
 
+class TransformerList(APIView):
+    """
+    List all Transformers, or create a new Transformer
+    """
 
-@api_view(['POST'])
+    def get(self,request):
+        transformers = APIModel.objects.all()
+        serializer = APISerializers(transformers, many=True)
+        return Response(serializer.data)
 
-def create(request):
-
-    serializer=APISerializers(data=request.data)
-
-    if serializer.is_valid():
-        serializer.save()
-
-        return Response(serializer.data,status=status.HTTP_201_CREATED)
-
-    return Response({"Response":"Invalid Credentials"})
-
-
-
-@api_view(['GET'])
-
-def get_one(request,pk):
-
-    data=APIModel.objects.get(pk=pk)
-
-    serializer=APISerializers(data)
-
-    # if serializer.is_valid():
-        
-    return Response(serializer.data,status=status.HTTP_200_OK)
-
-  
+    def post(self, request, format=None):
+            serializer = APISerializers(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data,
+                                status=status.HTTP_201_CREATED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['PUT'])
+class MainView(APIView):
 
-def update(request,pk):
-
-    data=APIModel.objects.get(pk=pk)
-
-    serializer=APISerializers(data,request.data)
-
-    if serializer.is_valid():
-        serializer.save()
-
-        return Response(serializer.data,status=status.HTTP_201_CREATED)
-
-    return Response({"Response":"Invalid Credentials"})
-
-
-
-@api_view(['DELETE'])
-
-def delete(request,pk):
-
-    try:
+    def get(self, request, pk, format=None):
         data=APIModel.objects.get(pk=pk)
-        data.delete()
-        return Response({"Response":"Deleted successfully "})
+        serializer = APISerializers(data)
+        return Response(serializer.data)
+
+    def put(self,request,pk):
     
-    except:    
-        return Response({"Requested data not found unable to delete"})
-   
+        print(request.data)
+        user_data=APIModel.objects.get(pk=pk)
+        serializer = APISerializers(user_data,request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    
+    def delete(self,request,pk):
+        try:
+            data=APIModel.objects.get(pk=pk)
+            data.delete()
+            return Response({"Response":"Deleted successfully "})
+        
+        except:    
+            return Response({"Requested data not found unable to delete"})
+
+
+
+
