@@ -7,33 +7,20 @@
 
 The Django REST framework (DRF) is a toolkit built on top of the Django web framework that reduces the amount of code you need to write to create REST interfaces.
 
-- Type some Markdown on the left
-- See HTML in the right
-- ✨Magic ✨
+## About
+This Django Rest FrameWork project having 3 types of views
+
+> normal views
+> Class Based View
+> Mixin View and Generic Views
 
 ## Features
 
-- Import a HTML file and watch it magically convert to Markdown
-- Drag and drop images (requires your Dropbox account be linked)
-- Import and save files from GitHub, Dropbox, Google Drive and One Drive
-- Drag and drop markdown and HTML files into Dillinger
-- Export documents as Markdown, HTML and PDF
+- Simplicity, flexibility, quality, and test coverage of source code.
+- Powerful serialization engine compatible with both ORM and non-ORM data sources.
+- Pluggable and easy to customise emitters, parsers, validators and authenticators.
+- Generic classes for CRUD operations.
 
-Markdown is a lightweight markup language based on the formatting conventions
-that people naturally use in email.
-As [John Gruber] writes on the [Markdown site][df1]
-
-> The overriding design goal for Markdown's
-> formatting syntax is to make it as readable
-> as possible. The idea is that a
-> Markdown-formatted document should be
-> publishable as-is, as plain text, without
-> looking like it's been marked up with tags
-> or formatting instructions.
-
-This text you see here is *actually- written in Markdown! To get a feel
-for Markdown's syntax, type some text into the left window and
-watch the results in the right.
 
 ## Tech
 
@@ -55,22 +42,15 @@ And of course Dillinger itself is open source with a [public repository][dill]
 
 ## Installation
 
+Django REst Frame_work requires
+
 Dillinger requires [Node.js](https://nodejs.org/) v10+ to run.
 
-Install the dependencies and devDependencies and start the server.
+Install the dependencies by using the following command.
 
-```sh
-cd dillinger
-npm i
-node app
+```pip install djangorestframework
 ```
 
-For production environments...
-
-```sh
-npm install --production
-NODE_ENV=production node app
-```
 
 ## Plugins
 
