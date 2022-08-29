@@ -10,9 +10,9 @@ The Django REST framework (DRF) is a toolkit built on top of the Django web fram
 ## About
 This Django Rest FrameWork project having 3 types of views
 
-- normal views
-- Class Based View
-- Mixin View and Generic Views
+> normal views
+> Class Based View
+> Mixin View and Generic Views
 
 ## Features
 
@@ -48,9 +48,18 @@ Dillinger requires [Node.js](https://nodejs.org/) v10+ to run.
 
 Install the dependencies by using the following command.
 
-```pip install djangorestframework
+```sh
+cd dillinger
+npm i
+node app
 ```
 
+For production environments...
+
+```sh
+npm install --production
+NODE_ENV=production node app
+```
 
 ## Plugins
 
