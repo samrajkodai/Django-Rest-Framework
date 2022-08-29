@@ -10,9 +10,9 @@ The Django REST framework (DRF) is a toolkit built on top of the Django web fram
 ## About
 This Django Rest FrameWork project having 3 types of views
 
-> normal views
-> Class Based View
-> Mixin View and Generic Views
+- normal views
+- Class Based View
+- Mixin View and Generic Views
 
 ## Features
 
