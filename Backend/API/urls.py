@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     path('',views.create),
-    # path('update/<int:pk>',views.update),
-    # path("Get/<pk>/",views.GetOne)
+    path('get/<int:pk>',views.get_one),
+    path("update/<int:pk>/",views.update),
+    path("delete/<int:pk>/",views.delete)
 ]
