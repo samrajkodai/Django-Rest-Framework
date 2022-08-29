@@ -1,13 +1,7 @@
 from django.db import models
 
-# Create your models here.
+class APIModel(models.Model):
 
-class Product(models.Model):
-    title=models.CharField(max_length=20)
-    content=models.CharField(max_length=30)
-    price=models.IntegerField(max_length=20)
-    
-    @property
-    
-    def discount(self):
-        return 50
+    name=models.CharField(max_length=10)
+    age=models.IntegerField()
+    location=models.CharField(max_length=10)

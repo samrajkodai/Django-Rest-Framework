@@ -1,18 +1,11 @@
 from rest_framework import serializers
+from .models import APIModel
 
-from .models import Product
-
-class ProductSerializer(serializers.ModelSerializer):
-    discount=serializers.SerializerMethodField(read_only=True)
+class APISerializers(serializers.ModelSerializer):
     class Meta:
-        model=Product
+        model=APIModel
         fields=[
-            'title',
-            'content',
-            'price',
-            'discount'
-            
+            'name',
+            'age',
+            'location'
         ]
-
-    def discount(self,obj):
-        return obj.get_discount

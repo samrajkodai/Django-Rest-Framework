@@ -1,46 +1,14 @@
-# from http.client import HTTPException
-# from django.forms.models import model_to_dict
-# from django.http import JsonResponse
-# from . models import Product
-# from rest_framework.response import Response
-# from rest_framework.decorators import api_view
-# from .serializers import ProductSerializer
+from os import stat
+from django.shortcuts import render
+from rest_framework.decorators import api_view
+from .serializers import APISerializers
+from django.http import JsonResponse
+from rest_framework.response import Response
+from .models import APIModel
+from rest_framework import status
 
 
-# @api_view(['POST'])
-# def api_home(request,*args, **kwargs):
-#     data=request.data
-    
-#     serializer=ProductSerializer(data=request.data)
-#     if serializer.is_valid(raise_exception=True):
-#         data=serializer.save()
-#         print("serializer.data",serializer.data)
-#         data=serializer.data
-   
-#         return Response(data)
+@api_view(['GET'])
 
-#     return Response({'invalid data'})
-
-
-from rest_framework import generics 
-from . models import Product
-from .serializers import ProductSerializer
-
-class ProductCreateAPIView(generics.CreateAPIView):
-    queryset=Product.objects.all()
-    serializer_class=ProductSerializer
-
-    def perform_create(self, serializer):
-        print(serializer)
-        serializer.save()
-
-class ProductDetailAPIView(generics.RetrieveAPIView):
-    queryset=Product.objects.all()
-
-    serializer_class=ProductSerializer
-
-
-class ProductListAPIView(generics.ListAPIView):
-    queryset=Product.objects.all()
-
-    serializer_class=ProductSerializer
+def create(request):
+    return Response({"result":"post created successfully"})

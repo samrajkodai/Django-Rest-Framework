@@ -8,10 +8,11 @@ import requests
 
 # print(result.json())
 
-endpoint="http://127.0.0.1:8000/api/list"
+endpoint="http://127.0.0.1:8000/api/"
 result=requests.get(endpoint, json={'title': 'new',
             'content': '12',
             'price': 122,
             'sale_price':45})
 
 print(result.json())
+
