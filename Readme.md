@@ -1,7 +1,7 @@
 # Django Rest Framework
-## _The Last Markdown Editor, Ever_
 
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
+
+[![N|Solid](https://user-images.githubusercontent.com/61903698/188264476-cd5f36d4-04ac-4198-842b-c5d1f1ecd3fd.png)
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
